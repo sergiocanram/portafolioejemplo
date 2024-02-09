@@ -1,0 +1,39 @@
+/* HTML: <div class="loader"></div> */
+:root {
+    --color-principal: #fff;
+    --color-secondary: #0597bb;
+    --color-background: #F2f7f9;
+    --color-transparent: transparent;
+    
+    --color-icon: #b5b6b7;
+    --color-titles: #222;
+    --color-subtitle: #888;
+    --color-text: #555;
+
+    --color-border-reviews: #e5e6e7;
+    --color-company: #a5a6a7;
+}
+
+.loader {
+    width: 50px;
+    aspect-ratio: 1;
+    color: var(--color-secondary);
+    border-radius: 50%;
+    display: block;
+    background: 
+      conic-gradient(from 90deg at 4px 4px,#0000 90deg,currentColor 0)
+      -4px -4px/calc(50% + 2px) calc(50% + 2px),
+      radial-gradient(farthest-side,currentColor 6px,#0000 7px calc(100% - 6px),currentColor calc(100% - 5px)) no-repeat;
+    animation: l10 2s infinite linear;
+    position: relative;
+    left:50%;
+    margin-top: 3rem;
+  
+  }
+  .loader:before {
+    content: "";
+    border-radius: inherit;
+    background: inherit;
+    transform: rotate(45deg);
+  }
+  @keyframes l10 {to{transform: rotate(.5turn)}}
