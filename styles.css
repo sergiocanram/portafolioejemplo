@@ -1,0 +1,1277 @@
+/* VARIABLES */
+
+:root {
+    --color-principal: #fff;
+    --color-secondary: #0597bb;
+    --color-background: #F2f7f9;
+    --color-transparent: transparent;
+    
+    --color-icon: #b5b6b7;
+    --color-titles: #222;
+    --color-subtitle: #888;
+    --color-text: #555;
+
+    --color-border-reviews: #e5e6e7;
+    --color-company: #a5a6a7;
+}
+
+/* ESTILOS GENERALES */
+
+html {
+    font-size: 10px;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'ubuntu', Helvetica, sans-serif;
+    font-size: 1.5rem;
+    color: var(--color-text);
+    background-color: var(--color-background);
+
+}
+
+h1,h2,h3,h4,h5,h6 {
+    color: var(--color-titles);
+}
+
+/* IMAGEN DEL FONDO */
+
+body{
+    background-image: url("../img/fondo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -20px -120px
+}
+
+/* ESTRUCURA PRINCIPAL */
+
+.layout {
+    position: relative;
+    min-width: 1290px;
+    min-height: 80vh;
+    width: 70%;
+    height: 80vh;
+    margin: 10vh auto;
+
+    display: grid;
+    grid-template-areas: 
+        "aside content";
+    grid-template-columns: 30% 70%;
+
+    /* Sombra que está detrás del Layout*/
+
+border-radius: 4rem;
+box-shadow: 0 0 100px -10px rgba(0, 0, 0, 0.22);
+
+}
+
+/*  BARRA LATERAL AZUL  */
+
+.layout__aside {
+    grid-area: aside;
+
+    border-radius: 4rem 0 0 4rem;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.aside__user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;  
+    min-height: 100%;
+    min-width: 30rem;
+
+    background-color: var(--color-secondary);
+    color: var(--color-principal)
+}
+
+.user-info__container-image{
+    position:relative;
+    display:inline-block;
+    width:18rem;
+    margin-top:7rem;
+    z-index: 1;
+
+    
+}
+
+.user-info__image {
+    width: 100%;
+    background-color: var(--color-principal);
+    border: 3px solid var(--color-principal);
+    border-radius: 20rem;
+}
+
+.user-info__container-image::after{
+    content: "";
+    position: absolute;
+    top:8%;
+    left: 10%;
+    font-size: 50px;
+    z-index: -1;
+    width:100%;
+    height: 100%;
+    background-image: -webkit-repeating-radial-gradient(center center, #fff, #fff 1px, transparent 0px, transparent 100%);
+    background-size: 1rem 1rem;
+    border-radius: 50%;
+}
+
+.user-info__name{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--color-principal);
+    margin-top: 3rem;
+
+}
+
+.user-info__job{
+    font-size: 1.8rem;
+    font-weight: 200;
+    color:var(--color-principal)
+}
+
+
+
+.user-info__links {
+    margin-bottom: 4rem;;
+}
+
+.links__social{
+    margin-top: 2rem;
+    text-align: center;
+
+    display:flex;
+    flex-direction: row;
+    
+}
+
+.social__option {
+    height: 3rem;
+    width: 3rem;
+    font-size: 2.4rem;
+    line-height: 3rem;
+    
+    opacity: 0.6;
+    border-radius: 1rem;
+    margin: 5rem 1rem;
+    transition: all 0.2s ease-in-out;
+    
+}
+
+.social__option:hover{
+    opacity:1;
+    background-color: rgba(255,255, 255, 0.2);
+    transform: translateY(-1rem);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);    
+}
+
+.user-info__buttons {
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+}
+
+.user-info__btn{
+    border: 2px solid var(--color-principal);
+    padding: 1.5rem 2.3rem;
+    border-radius: 3rem;
+    color: var(--color-principal);
+    box-shadow: 0 10px 10px -2px rgba(0, 0, 0, 0.22);
+    transition: all 0.2s ease-in;
+}
+
+.user-info__btn:hover{
+    background-color: var(--color-principal);
+    color: var(--color-secondary);
+    
+
+}
+
+.user-info__footer {
+    position: absolute;
+    bottom: 2rem;
+    font-size: 1.2rem;
+}
+
+
+
+
+
+
+
+/* MENU NAVEGACIÓN LATERAL */
+
+.layout__menu{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -12rem;
+    min-width: 11rem;
+    background-color: var(--color-transparent);
+}
+
+.menu__list{
+    position: relative; 
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 60%;
+    min-height: 32rem;
+    padding: 2rem 0;
+    background-color: var(--color-principal);
+    
+    box-shadow: 0 0 3rem -0.5rem rgba(0, 0, 0, 0.14);
+    border-radius: 5rem;
+    
+}
+
+.menu__option {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.menu__option:hover .menu__icon,
+.menu__link--active .menu__icon {
+    color: var(--color-secondary);
+}
+
+
+
+.menu__icon {
+    color: var(--color-icon) ;
+    font-size: 3rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu__overlay {
+    position:absolute;
+    right: 0;
+    margin-top: -3rem;
+    display: block;
+    opacity: 0;
+    padding: 0.5rem 1rem ;
+    color:var(--color-principal);
+    background-color: var(--color-secondary);
+    white-space: nowrap;
+    transition: all .3s ease-in;
+}
+
+.menu__option:hover .menu__overlay{
+    opacity: 1;
+    right: 110%;
+    border-radius: 1rem;
+
+}
+
+ 
+/*  CONTENEDOR PRINCIPAL  */
+
+.layout__content {
+    grid-area: content; 
+    height: 100%;
+    min-height: 100%;
+    background-color: var(--color-secondary);
+    border-radius: 0 10rem 10rem 0; 
+}
+
+.content__page {
+
+    background-color: var(--color-principal);
+    min-height: 100%;
+    border-radius: 3.2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.page__name {
+    font-size: 6rem;
+    margin-top: 2rem;
+}
+
+.page__job {
+    font-size: 2.1rem;
+    font-weight: lighter;
+    color: var(--color-subtitle);
+}
+
+
+/* ESTILOS GENERALES (SOBRE MI Y OTRAS PÁGINAS) */
+
+.content__about,
+.content__resume,
+.content__portafolio,
+.content__blog,
+.content__contact{
+    height: 100%;
+    min-height: 100%;
+    padding: 6rem;
+    overflow: auto ;
+
+    background-color: var(--color-principal);
+    display: block;
+
+}
+
+.about__header,
+.resume__header,
+.portafolio__header,
+.blog__header,
+.contact__header {
+    display: inline-block;
+    margin-bottom: 5rem;
+}
+
+.about__title,
+.resume__title,
+.portafolio__title,
+.blog__title,
+.contact__title {
+    font-size: 3.2rem;
+    position:relative;
+}
+
+.about__title::after,
+.resume__title::after,
+.portafolio__title::after,
+.blog__title::after,
+.contact__title::after {
+    content: "";
+    position: absolute;
+    top: 25px;
+    left: 120px;
+    height: 30px;
+    width: 30px;
+    background-image: -webkit-repeating-radial-gradient(center center, var(--color-secondary), var(--color-secondary) 1px, transparent 0%, transparent 100%);
+    background-size: 6px 6px;
+}   
+
+
+.title__color,
+.subtitle__color {
+     color: var(--color-secondary)
+}
+
+.about__personal-info {
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5rem;
+
+}
+
+.personal-info__list {
+    margin-top: 0.5rem;
+}
+
+.personal-info__bio {
+    flex-basis: 55%;
+}
+
+.espana{
+    margin-left:4rem;
+}
+
+.emilio {
+    margin-left: 3rem;
+}
+
+.fono {
+    margin-left: .5rem;
+}
+
+.personal-info__description {
+    font-size: 2rem;
+    line-height: 3rem;
+    justify-content: center;
+    text-align: justify;
+}
+
+.personal-info__data {
+    flex-basis: 45%;
+    padding: 0 2rem;
+}
+
+.personal-info__option {
+    margin-bottom: 1.5rem;
+}
+
+.personal-info__title {
+    margin-right: 1rem;
+    color: var(--color-secondary);
+    font-weight: 600;
+}
+
+/*  SERVICIOS  - ESTILOS COMPARTIDOS*/
+
+.about__services,
+.about__reviews, 
+.about__clients,
+.about__prices,
+.about__extra,
+.resume__header {
+    width:100%;
+    margin-bottom: 3rem;
+}
+
+.services__header, 
+.reviews__header, 
+.clients__header,
+.prices__header,
+.extra__header,
+.resume__subheader,
+.contact__form-header  {
+    display: inline-block;
+    padding-right: 1.5rem;
+    position: relative;
+    margin-bottom: 3rem ;
+}
+
+.services__title,
+.reviews__title,
+.clients__title, 
+.prices__title,
+.extra__title,
+.resume__subtitle,
+.form-header__title {
+    font-size: 2rem;
+}
+
+.services__title::after,
+.reviews__title::after,
+.clients__title::after,
+.prices__title::after,
+.extra__title::after,
+.resume__subtitle::after,
+.form-header__title::after
+  {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 100px;
+    height: 25px;
+    width: 30px;
+    background-image: -webkit-repeating-radial-gradient(center center, var(--color-secondary), var(--color-secondary) 1px, transparent 0%, transparent 100%);
+    background-size: 6px 6px;
+    opacity: 0.5;
+}
+
+/* El siguiente selector lo añado para modificar la posición de la sombra del de aquí arriba, que no salió bien situada */
+.form-header__title::after{
+    top:1.5rem;
+    left:23rem;
+}
+.reviews__title::after,
+.clients__title::after{
+    top: 10px;
+    left: 70px;
+}
+
+.prices__title::after
+                 {
+    top: 10px;
+    left: 50px;
+}
+
+.extra__title::after  {
+    top: 14px;
+    left: 160px;
+}
+
+.resume__title::after{
+    left:16rem;
+}
+
+.blog__title::after{
+    top:2.5rem;
+    left:5rem
+}
+
+.portafolio__title::after{
+    top: 25px;
+    left: 135px;
+}
+
+.services__container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.services__service {
+    flex-basis: calc(50% - 3rem);
+    margin-right: 3rem;
+    margin-bottom: 3rem;
+}
+
+.service__icon .fa-solid {
+    color: var(--color-secondary);
+    font-size: 4rem; ;
+}
+
+.service__title {
+    font-size: 2rem;
+    margin: 0.5rem 0;
+}
+
+.service__description {
+    font-size: 1.6rem;
+    text-align: justify;
+}
+
+.reviews__container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.reviews__review{
+    flex-basis:calc(50% - 2.5rem);
+
+    border: 2px solid var(--color-border-reviews);
+    border-radius: 2rem;
+    padding: 0 2.5rem 2.5rem 1.5rem;
+    margin-right: 2.5rem;
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+}
+
+.review__image-container {
+    width: 100%;
+}
+
+.review__image {
+    max-width: 9rem;
+    max-height: 9rem;
+    border-radius: 5rem;
+    margin: 0 auto;
+    margin-top: -5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 10px -6px rgba(0, 0, 0, 0.2);
+}
+
+.review__description {
+    margin-bottom: 1rem;
+}
+
+.review__text {
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+}
+
+.review__author {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.review__name {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.review__company {
+     color: var(--color-company);
+     font-weight: 300;
+     font-size: 1.3rem;
+}
+
+.review__icon {
+    font-size: 4rem;
+    opacity: .5;
+    color: var(--color-secondary);
+}
+
+/* CLIENTES */
+
+.about__clients {
+    width: 100%;
+    margin-bottom: 2.4rem;
+}
+
+.clients__header {
+    margin-bottom: 3rem;
+}
+
+.clients__container {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.clients__link {
+    display: block;
+    width: 100%;
+    opacity: 0.4;
+    transition: all .3s linear;
+
+}
+
+.clients__link:hover {
+    opacity:1; 
+}
+
+.clients__image {
+    width:140px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* PRECIOS */
+
+.prices__container {
+    margin-bottom: 5rem;
+
+    display: flex;
+    flex-direction: row;
+
+}
+
+.prices__box {
+    height: 100%;
+    flex-basis: 50%;
+    margin-right: 3rem;
+    padding: 3rem;
+    border-radius: 1.8rem;
+    border: 2px solid var(--color-border-reviews);
+    text-align: center;
+    transition: all .3s ease-in-out;
+}
+
+.prices__box:last-of-type {
+    margin-right: 0;
+}
+
+.prices__box:hover,
+.extra__info:hover{
+    box-shadow: 0 20px 45px  rgba(0, 0, 0, 0.14);
+    transform: translateY(-2rem);
+}
+
+.prices__subtitle {
+    margin-bottom: 3rem;
+}
+
+.prices__text {
+    position: relative;
+    display: inline-block;
+}
+
+.prices__box:hover .prices__text::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.3rem;
+    height: 0.2rem;
+    background-color: var(--color-secondary);
+}
+
+.prices__price{
+    padding-bottom: 1rem;
+}
+
+.prices__number{
+    display: block;
+    font-size: 4.5rem;
+    line-height: 1;
+    color: var(--color-titles)
+}
+
+.prices__advice{
+    display:block;
+    color: #555;
+}
+
+.prices__buy{
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
+.prices__btn{
+        display:inline-block;
+        padding: 1.2rem 3.2rem;
+        border: 2px solid var(--color-border-reviews);
+        box-shadow: 0 10px 10x -8px var(--color-border-reviews);
+        border-radius: 3rem; 
+        transition: all .4s ease-in-out;
+}
+
+.prices__btn:hover{
+    border: 2px solid var(--color-secondary);
+    background-color:   var(--color-secondary);
+    color: var(--color-principal)
+}
+
+.prices__reward {
+    font-size: 1.6rem;
+    padding: 0.5rem;
+}
+
+
+/* EXTRA */
+
+.extra_container {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.extra__info {
+    flex-basis: 30%;
+    padding: 2.5rem 1rem ;
+    border: 2px solid var(--color-border-reviews);
+    border-radius: 2rem;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.extra__info:hover {
+     transform: translateY(-0.5rem);
+}
+
+.extra__icon {
+    font-size: 4rem;
+    color: var(--color-secondary);
+    margin-bottom: 2rem;
+}
+
+.extra__subtitle {
+    font-size: 1.5rem;
+    margin:1.5rem;
+}
+
+.extra__quantity {
+    display:block;
+    margin:2rem 1rem;
+    margin-bottom: 0;
+    font-size: 4rem;
+    line-height: 5rem;
+    color: var(--color-subtitle)
+
+}
+
+/* CURRICULUM */
+
+.resume__container{
+    width: 100%;
+    display:flex;
+    flex-direction:row;
+}
+
+/* CURRICULUM DE LA IZQUIERDA*/
+
+.resume__left {
+    flex-basis: 58%;
+    margin-right:2rem;
+}
+
+.resume__timelines {
+    margin-bottom: 5rem;
+}
+
+.timelines__timeline {
+    position: relative;
+    width:100%;
+
+    display:flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+}
+
+.timeline__header {
+    flex-basis: 30%;
+    text-align: right;
+    padding-right: 3rem;
+
+}
+
+.timeline__year{
+    margin: 0.5rem 0;
+    line-height: 2rem;
+    font-size: 1.5rem;
+}
+
+.timeline__company{
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 200;
+    color: var(--color-company);
+}
+
+.timeline__description{
+    width: 70%;
+    padding: 0 2rem 0;
+}
+
+.timeline__title{
+    font-size: 1.8rem;
+    margin-bottom: 0.4rem;
+}
+
+.timeline__text{
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+     
+}
+
+.timeline__divider {
+    position: absolute;
+    left:30%;
+    bottom:-3rem;
+    top:0.5rem;
+    width: 2px;
+    background-color: var(--color-company)
+}
+
+.timeline__divider::before{
+    content:"";
+    position: absolute;
+    left:-0.9rem;
+
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+    border: 2px solid var(--color-secondary);
+    background-color: var(--color-principal);
+    opacity: 1;
+}
+
+.timeline__divider::after{
+    content:"";
+    position: absolute;
+    left:-0.4rem;
+    top:.5rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 1rem;
+    background-color:var(--color-secondary);
+    border: 2px solid white;
+    opacity: 0.8;
+}
+
+
+/* CURRICULUM DE LA DERECHA*/
+.resume__right {
+    flex-basis: 41%;
+    padding: 0 1.5rem;
+}
+
+.resume__skills {
+    width: 100%;
+    margin-bottom: 4rem;
+}
+
+.skills__title {
+    display:flex;
+    justify-content: space-between;
+
+}
+
+.skills__text {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    margin-bottom: 0.4rem;
+
+}
+
+.skills__number {
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+    margin-bottom: 0.4rem;
+    color: var(--color-subtitle)
+}
+
+.skills__progressbar{
+    height: 1rem;
+    border: 1px solid var(--color-secondary);
+    background-color: var(--color-principal);
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+.skills__percentage{
+    height: 0.8rem;
+    background-color: var(--color-secondary);
+    border: 2px solid var(--color-principal);
+    border-radius: 1rem;
+}
+
+.skills__percentage--p1{width:90%;}
+.skills__percentage--p2{width:83%;}
+.skills__percentage--p3{width:90%;}
+.skills__percentage--p4{width:55%;}
+.skills__percentage--p5{width:40%;}
+
+.knowledges__list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.knowledges__option{
+    background-color: var(--color-secondary);
+    border-radius: 0.4rem;
+    color:var(--color-principal);
+    font-size: 1.3rem;
+    padding: 0.5rem 1rem;
+    margin: 0.3rem;
+}
+
+.certificates__container{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:3rem;
+}
+
+.certificates__certificate{
+    flex-basis: calc(50%-3rem);
+    border:2px solid var(--color-secondary);
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 2rem;
+}
+
+/* PORTFOLIO */
+
+.portfolio__navbar{
+    margin-bottom: 3rem;
+}
+
+.portfolio__menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem
+}
+
+.portfolio__option{
+    font-size: 1.8rem;
+    opacity: 0.5;
+}
+
+.portfolio__option--active {
+    opacity: 1;
+    font-weight: 800;
+}
+
+.portfolio__link{
+    cursor: pointer;
+}
+
+.portfolio__link:hover{
+    color:var(--color-secondary);
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+}
+
+.portfolio__gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.gallery__item{
+    position:relative;
+    flex-basis: 33%; 
+    padding: 1rem;;
+
+}
+
+.gallery__container-image{
+    overflow: hidden;
+}
+
+.gallery__image {
+     transition: all .3s ease-in-out;
+}
+
+.gallery__item:hover .gallery__image {
+    transform: scale(1.2);
+}
+
+.gallery__title{
+    font-size: 1.6rem;
+    padding: 1.5rem 0;
+    font-weight: bolder;
+}
+
+.gallery__icon{
+    opacity: 0;
+    position: absolute;
+    top:1.5rem;
+    right:1.5rem;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.6rem;
+    text-align: center;
+    line-height: 3rem;
+    background-color: var(--color-principal);
+    color: var(--color-secondary);
+    transition: all 250ms ease-in-out;
+}
+
+.gallery__item:hover .gallery__icon,
+.gallery__item:hover .gallery__category{
+    opacity: 1;
+}
+
+.gallery__category{
+    opacity: 0;
+    position: absolute;
+    top:1.5rem;
+    left:1.5rem;
+    padding: 0.2rem 1rem;
+    font-size: 1.3rem;
+    border-radius: 0.5rem;
+    background-color: var(--color-principal);
+    color: var(--color-text);
+    transition: all 250ms ease-in-out;
+
+}
+
+/* BLOG */
+
+.blog__articles {
+    margin-bottom: 3rem;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.articles__article{
+    flex-basis: 50%;
+    padding: 0 1.5rem;
+    padding-bottom: 3rem;
+}
+
+.article__top{
+    position: relative;
+    overflow: hidden;
+}
+
+.article__top:hover .article__image{
+    transform: scale(1.2);
+}
+
+.article__category{
+    position: absolute;
+    top:1rem;
+    left:1rem;
+    font-size: 1.2rem;
+    background-color: var(--color-principal);
+    color: var(--color-text);
+    padding: 0.2rem 0.8rem;
+    line-height: 2rem;
+    z-index: 2;
+}
+
+.article__mask{
+    width: 100%;
+    height: 18rem;
+    overflow: hidden;
+
+}
+
+.article__image {
+    display: block;
+    
+    transition: all 300ms ease-in-out;
+}
+
+.article__logo {
+    transition: all 300ms ease-in-out;
+    opacity: 0;
+}
+
+.article__icon{
+    position: absolute;
+    top: calc(50% - 3rem);
+    left:calc(50% - 2.2rem);
+    font-size: 5rem;
+    color:var(--color-principal);
+    text-align: center;
+    
+}
+
+.article__top:hover .article__logo{
+    opacity: 1;
+}
+
+.article__bottom{
+    margin:0;
+    padding: 2.1rem;
+    padding-top: 1.5rem;
+    border: 0.1rem solid var(--color-border-reviews);
+    border-top: 0;
+}
+
+.article__date{
+    display: block;
+    font-size: 1.2rem;
+
+    font-weight: 200;
+    color: var(--color-subtitle)
+}
+
+.article__title{
+    font-size: 1.8rem;
+
+}
+
+/*  CONTACTO  */
+
+.contact__container {
+    display: flex;
+    flex-direction: row;
+}
+
+.contact__info{
+    flex-basis: 33%;
+    padding: 0 1.5rem;
+}
+
+.contact__data{
+    width: 100%;
+    margin-bottom: 1.5rem;
+    padding: 2rem 1rem;
+    text-align: center;
+    background-color: var(--color-background);
+    border: 0.1rem solid var(--color-border-reviews);
+}
+
+.contact__icon{
+    font-size: 3.3rem;
+    color: var(--color-secondary);
+}
+
+.contact__subtitle{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.contact__form-box{
+    flex-basis: 66%;
+    padding: 0 1.5rem;
+}
+
+.form__container{
+    display: flex;
+}
+
+.form__left{
+    flex-basis: 47%;
+    margin-right: 1.5rem;
+}
+
+.form__group{
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.form__input{
+    position: relative;
+    width:100%;
+    display: block;
+    border: 0.1rem solid var(--color-border-reviews);
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 2rem;
+    outline: none;
+    box-shadow: 0 1rem 1rem -8px rgba(0, 0, 0, 0.1);
+    line-height: 2rem;
+}
+
+.form__input:focus{
+    border: 0.2rem solid var(--color-secondary);
+
+}
+
+.form__input:focus~label,
+.form__input:not(:placeholder-shown)~label{
+    top: -2rem;
+    left:0;
+    z-index: 1;
+    font-size: 1.3rem;
+    color:var(--color-secondary);
+
+}
+
+.form__label{
+    position: absolute;
+    top:1rem;
+    left:1rem; 
+    z-index: 1;
+    color: var(--color-company);
+    transition: all 500ms ease-out;
+    pointer-events: none;
+}
+
+
+.form__right{
+    flex-basis: 50%;
+    max-width: 50%;
+    max-height: 100%;
+}
+
+.form__input--textarea {
+    display: block;
+    resize: none;
+    height: 22.5rem;
+    width: 30rem;
+}
+
+.form__button{
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    border: 2px solid var(--color-secondary);
+    color: var(--color-titles);
+    background-color: var(--color-principal);
+    border-radius: 3rem;
+    box-shadow: 0 1rem 1rem -0.8rem rgba(0, 0, 0, 0.22);
+    transition: all 300ms ease-in-out;
+    cursor:pointer;
+}
+
+.form__button:hover{
+    background-color: var(--color-secondary);
+    color: var(--color-principal)
+}
+
+.contact__map{
+    width: 100%;
+    min-height: 15rem;
+    margin-bottom: 4rem;
+    overflow: hidden;
+}
+
+.contact__iframe{
+    width: 100%;
+    height: 14rem;
+}
+
+
+
+
+
+
+ 
+
